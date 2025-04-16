@@ -1,3 +1,10 @@
-## [**Proofread and spell check your website using our Cloud SaaS**](https://www.triplechecker.com)
+# Site Inspector
 
-Visit [triplechecker.com](https://www.triplechecker.com)
+Edit the `docker-compose.yml` and add a random 30+ character SECRET_KEY_BASE value.
+
+```sh
+docker compose up -d
+```
+
+Go to url:  
+http://localhost:808
