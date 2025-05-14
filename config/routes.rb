@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       resource :active_crawl_session, only: %i[show]
       resource :report_shareable_link, only: %i[show]
       resource :report, only: %i[show]
+      resource :export_pdf, only: %i[show], controller: 'website_export_pdf'
     end
   end
 end

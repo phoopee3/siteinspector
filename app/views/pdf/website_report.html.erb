@@ -1,0 +1,18 @@
+<!-- filepath: /home/user/Desktop/siteinspector/app/views/pdf/website_report.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sample PDF Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    h1 { color: #333; }
+    p { font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>Sample PDF Report</h1>
+  <p>This is a sample PDF generated using WickedPdf.</p>
+  <p>Website: <%= website.domain %></p>
+  <p>Generated at: <%= Time.current.strftime('%Y-%m-%d %H:%M:%S') %></p>
+</body>
+</html>

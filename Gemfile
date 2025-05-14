@@ -52,3 +52,5 @@ group :test do
   gem 'webmock'
   gem 'webrick'
 end
+
+gem "wicked_pdf", "~> 2.8"

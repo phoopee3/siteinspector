@@ -89,14 +89,14 @@ export default {
 
       // For now, just show a success message without actual PDF export
       // In a subsequent implementation, we would call the API to generate the PDF
-      setTimeout(() => {
-        Message.success('PDF report has been generated and downloaded')
-        this.formData.isExporting = false
-        this.$emit('close')
-      }, 1500)
+      // setTimeout(() => {
+      //   Message.success('PDF report has been generated and downloaded')
+      //   this.formData.isExporting = false
+      //   this.$emit('close')
+      // }, 1500)
       
       // Actual implementation would be something like:
-      /*
+      
       api.get(`websites/${this.formData.selectedWebsiteId}/export_pdf`, {
         responseType: 'blob'
       }).then((response) => {
@@ -115,7 +115,6 @@ export default {
       }).finally(() => {
         this.formData.isExporting = false
       })
-      */
     }
   }
 }
