@@ -7,6 +7,17 @@
       </h1>
       <div>
         <IButton
+          role="exportPdfBtn"
+          size="large"
+          class="bg-white me-3"
+          type="primary"
+          icon="md-download"
+          ghost
+          @click="openExportPdfModal"
+        >
+          <span class="d-none d-md-inline">Export as PDF</span>
+        </IButton>
+        <IButton
           role="shareReporBtn"
           size="large"
           class="bg-white"
@@ -15,7 +26,7 @@
           ghost
           @click="openShareModal"
         >
-          <span class="d-none d-md-inline"> Share Report </span>
+          <span class="d-none d-md-inline">Share Report</span>
         </IButton>
       </div>
     </div>
@@ -32,6 +43,7 @@
 <script>
 import Website from '../components/website'
 import ShareForm from '../components/share'
+import ExportPdfForm from '../components/export-pdf-form'
 import { Modal } from 'view3/src/plugins/dynamic-components'
 
 export default {
@@ -52,6 +64,16 @@ export default {
         }
       }, {
         title: 'Share report',
+        closable: true
+      })
+    },
+    openExportPdfModal () {
+      Modal.open(ExportPdfForm, {
+        onClose: (data) => {
+          Modal.remove()
+        }
+      }, {
+        title: 'Export report as PDF',
         closable: true
       })
     }
