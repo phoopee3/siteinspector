@@ -1,18 +1,41 @@
-<!-- filepath: /home/user/Desktop/siteinspector/app/views/pdf/website_report.html.erb -->
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Sample PDF Report</title>
-  <style>
-    body { font-family: Arial, sans-serif; }
-    h1 { color: #333; }
-    p { font-size: 14px; }
-  </style>
-</head>
-<body>
-  <h1>Sample PDF Report</h1>
-  <p>This is a sample PDF generated using WickedPdf.</p>
-  <p>Website: <%= website.domain %></p>
+<div>
+  <h1>Report for <%= website['domain'] %></h1>
   <p>Generated at: <%= Time.current.strftime('%Y-%m-%d %H:%M:%S') %></p>
-</body>
-</html>
+</div>
+
+<% website['pages'].each do |page| %>
+  <% if page['page_errors'].present? || page['broken_links'].present? %>
+    <div style="">
+      <h2>Page: <%= page['title'] %></h2>
+      <p>URL: <%= page['url'] %></p>
+
+      <% if page['page_errors'].present? %>
+        <h3>Errors</h3>
+        <% page['page_errors'].each do |error| %>
+          <div style="margin-bottom: 20px;">
+            <h4>Error Type: <%= error['error_type'] %></h4>
+            <p><strong>Text:</strong> <%= error['text'] %></p>
+            <p><strong>Correction:</strong> <%= error['correction'] %></p>
+            <p><strong>Context:</strong> <%= error['context'] %></p>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if page['broken_links'].present? %>
+        <h3>Broken Links</h3>
+        <ul>
+          <% page['broken_links'].each do |link| %>
+            <li>
+              <strong>URL:</strong> <%= link['url'] %> (<%= link['status'] %>)
+              <% if link['is_resolved'] %>
+                <span style="color: green;">Resolved</span>
+              <% else %>
+                <span style="color: red;">Unresolved</span>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

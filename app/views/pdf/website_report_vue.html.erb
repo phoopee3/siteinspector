@@ -1,0 +1,7 @@
+<div>will this show up?</div>
+
+<div id="pdf-export-app" data-website='<%= website.to_json.html_safe %>'>
+  <pdf-export-page :website='<%= website.to_json.html_safe %>'></pdf-export-page>
+</div>
+
+<%= javascript_pack_tag 'pdf-export' %>

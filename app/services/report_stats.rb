@@ -7,8 +7,8 @@ class ReportStats
   def stats
     # Example logic to calculate stats
     {
-      total_pages: @website.pages.count,
-      total_errors: @website.errors.count,
+      # total_pages: @website.pages.count,
+      # total_errors: @website.errors.count,
       #uptime: @website.uptime_percentage
     }
   end

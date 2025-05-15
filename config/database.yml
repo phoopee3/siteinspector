@@ -11,12 +11,15 @@ development:
     database: siteinspector_dev
     username: postgres
     password: postgres
-    host: localhost
+    host: 172.18.0.3
 
 test:
   primary:
     <<: *common
     database: siteinspector_test<%= ENV['TEST_ENV_NUMBER'] %>
+    username: postgres
+    password: postgres
+    host: 172.18.0.3
 
 production:
   primary:
